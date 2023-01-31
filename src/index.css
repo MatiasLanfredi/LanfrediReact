@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-primary text-primary;
+  }
+}
+
+.marginStyle {
+  padding-bottom: 8px;
+}
+
+.style__parallax {
+  background: #fff;
+  left: "50%";
+  top: "50%";
+  position: "absolute";
+  padding: "20px";
+  transform: "translate(-50%,-50%)";
+}
