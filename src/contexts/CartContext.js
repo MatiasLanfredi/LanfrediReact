@@ -26,7 +26,7 @@ const CartProvider = ({ children }) => {
       return acummulator + currentItem.price * currentItem.amount;
     }, 0);
     setTotal(total);
-  });
+  },[cart]);
   //?Add To cart
   const addToCart = (product, id) => {
     const newItem = { ...product, amount: 1 };
