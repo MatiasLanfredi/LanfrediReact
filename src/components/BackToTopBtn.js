@@ -39,4 +39,3 @@ function BackToTopBtn() {
 }
 
 export default BackToTopBtn;
-//   `bg-orange-500 p-2 rounded-full h-10 w-10 m-2 border-2 border-orange-900 fixed bottom-2 right-2"`        }

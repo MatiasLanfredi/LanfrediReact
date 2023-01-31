@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 //?Import link
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 //?Import Icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faEye } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faEye } from "@fortawesome/free-solid-svg-icons";
 //?Import cart context
-import { CartContext } from '../contexts/CartContext';
+import { CartContext } from "../contexts/CartContext";
 
 const Product = ({ product }) => {
   const { addToCart } = useContext(CartContext);
@@ -40,8 +40,6 @@ const Product = ({ product }) => {
           </Link>
         </div>
       </div>
-      {/*DETAILS  <></> ``*/}
-
       <div>
         <div className="text-sm capitalize text-gray-500 mb-1">{category} </div>
         <Link to={`/product/${id}`}>
