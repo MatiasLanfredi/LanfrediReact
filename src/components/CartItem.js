@@ -7,7 +7,6 @@ import { faXmark, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 //?Import Cart Context
 import { CartContext } from "../contexts/CartContext";
 const CartItem = ({ item }) => {
-  console.log(item);
   //?Remove Item
   const { removeFromCart, increaseAmount, decreaseAmount } =
     useContext(CartContext);
@@ -17,14 +16,14 @@ const CartItem = ({ item }) => {
     <div className="flex gap-x-4 py-2 lg:px-6 border-b border-gray-200 w-full font-light text-gray-500 ">
       <div className="w-full min-h-[150px] flex items-center gap-x-4 ">
         {/*IMAGE */}
-        <Link to={`/products/${id}`}>
+        <Link to={`/product/${id}`}>
           <img className="max-w-[80px] " src={image} alt={title} />
         </Link>
         <div className="w-full flex flex-col">
           {/*Title % remove icon*/}
           <div className="flex justify-between mb-2">
             <Link
-              to={`/products/${id}`}
+              to={`/product/${id}`}
               className="text-sm uppercase font-medium max-w-[240px] text-primary hover:underline "
             >
               {title}
@@ -64,7 +63,7 @@ const CartItem = ({ item }) => {
             </div>
             {/*Item Price*/}
             <div className="flex-1 flex items-center justify-around ">
-              $ {price}{" "}
+              $ {price}
             </div>
             {/*Final Price*/}
             <div className="flex-1 flex justify-end items-center text-primary font-medium">

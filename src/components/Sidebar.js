@@ -38,7 +38,7 @@ const Sidebar = () => {
       >
         {cart.map((item) => {
           return <CartItem item={item} key={item.id} />;
-        })}{" "}
+        })}
       </div>
       <div className=" flex w-full justify-between items-center flex-col">
         <div className="flex w-full justify-between items-center ">
@@ -57,12 +57,6 @@ const Sidebar = () => {
         <div className="flex p-4  flex-col w-full m-3 ">
           <Link
             to="/"
-            className=" flex bg-gray-200 p-4 justify-center items-center text-primary w-full font-medium m-auto mb-1"
-          >
-            View cart
-          </Link>
-          <Link
-            to="./ticket.js"
             className="flex bg-primary p-4 justify-center items-center text-white w-full font-medium m-auto mt-1"
           >
             Checkout

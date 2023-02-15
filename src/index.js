@@ -8,17 +8,18 @@ import ProductProvider from "./contexts/ProductContext";
 import SidebarProvider from "./contexts/SidebarContext";
 //?Cart Provider
 import CartProvider from "./contexts/CartContext";
-//?Remixcon
+
+import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <SidebarProvider>
-    <CartProvider>
-      <ProductProvider>
-        <React.StrictMode>
+  <React.StrictMode>
+    <SidebarProvider>
+      <CartProvider>
+        <ProductProvider>
           <App />
-        </React.StrictMode>
-      </ProductProvider>
-    </CartProvider>
-  </SidebarProvider>
+        </ProductProvider>
+      </CartProvider>
+    </SidebarProvider>
+  </React.StrictMode>
 );

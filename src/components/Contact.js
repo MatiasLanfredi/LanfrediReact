@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../services/firebase";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -10,8 +13,9 @@ const Contact = () => {
   const [phone, setPhone] = useState(0);
   const [message, setMessage] = useState(false);
 
-  const uploadMessage = (e) => {
+  const uploadMessage = async (e) => {
     e.preventDefault();
+
     const newMessage = {
       name: name,
       lastname: lastname,
@@ -19,7 +23,8 @@ const Contact = () => {
       phone: phone,
       message: message,
     };
-    console.log(newMessage);
+    const queryRef = collection(db, "userMessages");
+    await addDoc(queryRef, newMessage);
   };
 
   return (
@@ -28,7 +33,7 @@ const Contact = () => {
       className="container max-w-5xl mx-auto m-10 flex flex-row relative overflow-hidden "
     >
       {/* contact header */}
-      <div className="imagen h-96 p-1 bg-amber-500 w-1/4 overflow-hidden relative z-10 flex flex-col justify-around">
+      <div className="imagen h-96 p-1 bg-fourth w-1/4 overflow-hidden relative z-10 flex flex-col justify-around">
         <div className=" bg-orange-300 rounded-full w-24 h-24 absolute -z-10 bottom-12 left-52 overflow-hidden opacity-95 "></div>
         <div className=" bg-yellow-300 rounded-full w-52 h-48 absolute -z-10 -bottom-16 lg:left-64 md:left-52 sm:left-48 overflow-hidden opacity-40 "></div>
         <div className=" bg-yellow-200 rounded-full w-12 h-12 absolute -z-10 -bottom-4 -left-5 overflow-hidden "></div>
@@ -66,8 +71,8 @@ const Contact = () => {
         </div>
       </div>
       {/* contact form */}
-      <div className="forms h-96 bg-orange-500 w-3/4 p-12 flex flex-col">
-        <form onSubmit={uploadMessage} className="mt-8 flex flex-col gap-7">
+      <div className="forms h-96 bg-gradient-to-l from-third  to-fourth w-3/4 p-12 flex flex-col">
+        <form onSubmit={uploadMessage} className=" flex flex-col gap-7">
           <div className=" flex justify-around ">
             <div className=" flex flex-col">
               <label>First Name</label>
@@ -108,18 +113,23 @@ const Contact = () => {
               ></input>
             </div>
           </div>
-          <div className="flex flex-col w-56 m-auto">
-            <label>Put your mesj</label>
+          <div className="flex flex-col justify-center items-center">
+            <label>Leave your comment!</label>
             <textarea
+              className="w-96 m-auto h-14 p-2 resize-none"
               rows={2}
-              placeholder="Put your message"
+              placeholder="your comment..."
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
           </div>
-          <div className=" flex justify-around ">
-            <button className="bg-yellow-500 " type="submit">
+          <div className="flex m-auto mb-12 ">
+            <motion.button
+              whileTap={{ scale: 1.2 }}
+              className="rounded-lg border-solid border-2 border-slate-50 p-1"
+              type="submit"
+            >
               Send message
-            </button>
+            </motion.button>
           </div>
         </form>
       </div>
