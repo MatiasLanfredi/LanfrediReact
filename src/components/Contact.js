@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons";
+
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState(0);
+  const [message, setMessage] = useState(false);
+
+  const uploadMessage = (e) => {
+    e.preventDefault();
+    const newMessage = {
+      name: name,
+      lastname: lastname,
+      email: email,
+      phone: phone,
+      message: message,
+    };
+    console.log(newMessage);
+  };
+
   return (
     <div
       id="contact"
@@ -48,7 +67,7 @@ const Contact = () => {
       </div>
       {/* contact form */}
       <div className="forms h-96 bg-orange-500 w-3/4 p-12 flex flex-col">
-        <form className="mt-8 flex flex-col gap-7">
+        <form onSubmit={uploadMessage} className="mt-8 flex flex-col gap-7">
           <div className=" flex justify-around ">
             <div className=" flex flex-col">
               <label>First Name</label>
@@ -56,6 +75,7 @@ const Contact = () => {
                 className="w-max rounded-full p-1"
                 type="text"
                 placeholder="First name"
+                onChange={(e) => setName(e.target.value)}
               ></input>
             </div>
             <div className=" flex flex-col">
@@ -64,6 +84,7 @@ const Contact = () => {
                 className="w-max rounded-full p-1"
                 type="text"
                 placeholder="Last name"
+                onChange={(e) => setLastname(e.target.value)}
               ></input>
             </div>
           </div>
@@ -74,6 +95,7 @@ const Contact = () => {
                 className="w-max rounded-full p-1"
                 type="email"
                 placeholder="you@youremail.com"
+                onChange={(e) => setEmail(e.target.value)}
               ></input>
             </div>
             <div className=" flex flex-col">
@@ -82,30 +104,22 @@ const Contact = () => {
                 className="w-max rounded-full p-1"
                 type="text"
                 placeholder="Your phone"
+                onChange={(e) => setPhone(e.target.value)}
               ></input>
             </div>
           </div>
+          <div className="flex flex-col w-56 m-auto">
+            <label>Put your mesj</label>
+            <textarea
+              rows={2}
+              placeholder="Put your message"
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
+          </div>
           <div className=" flex justify-around ">
-            <div className=" flex flex-col -ml-2 w-48">
-              <label>Trouble</label>
-              <select>
-                <option value={"Cambio"}>Cambio</option>
-                <option value={"asdassd"}>asdassd</option>
-                <option value={"adasd"}>adasd</option>
-                <option value={"cvbcvb"}>cvbcvb</option>
-                <option value={"Other"}>Other</option>
-              </select>
-            </div>
-            <div className=" flex flex-col -ml-2  w-48">
-              <label>Country</label>
-              <select>
-                <option value={"Argentina"}>Argentina</option>
-                <option value={"Chile"}>Chile</option>
-                <option value={"Uruguay"}>Uruguay</option>
-                <option value={"Peru"}>Peru</option>
-                <option value={"Other"}>Other</option>
-              </select>
-            </div>
+            <button className="bg-yellow-500 " type="submit">
+              Send message
+            </button>
           </div>
         </form>
       </div>

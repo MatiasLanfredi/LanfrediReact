@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 //?Import Link
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 //?Import icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 //?Import Cart Context
-import { CartContext } from '../contexts/CartContext';
+import { CartContext } from "../contexts/CartContext";
 const CartItem = ({ item }) => {
+  console.log(item);
   //?Remove Item
   const { removeFromCart, increaseAmount, decreaseAmount } =
     useContext(CartContext);
@@ -51,7 +52,7 @@ const CartItem = ({ item }) => {
               </div>
               {/* amount */}
               <div className="h-full flex justify-center items-center px-2">
-                {amount}{' '}
+                {amount}{" "}
               </div>
               {/* plus icon */}
               <div
@@ -63,7 +64,7 @@ const CartItem = ({ item }) => {
             </div>
             {/*Item Price*/}
             <div className="flex-1 flex items-center justify-around ">
-              $ {price}{' '}
+              $ {price}{" "}
             </div>
             {/*Final Price*/}
             <div className="flex-1 flex justify-end items-center text-primary font-medium">
