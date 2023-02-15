@@ -1,5 +1,5 @@
-react coderhouse 2023
+Proyecto Coderhouse 2023 Comision 34880
 
-add filter categorias 
-add better contact content
-fix responsive
+Nombre del Proyecto : Incube, este mismo seria un Ecommerce de ropa.
+
+Creado con Tailwind
