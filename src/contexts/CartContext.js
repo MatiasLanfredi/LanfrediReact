@@ -7,6 +7,10 @@ export const CartContext = createContext();
 const CartProvider = ({ children }) => {
   //?Cart State
   const [cart, setCart] = useState([]);
+
+  //?Item Amount State
+  const [itemAmount, setItemAmount] = useState(0);
+
   //?Update Item Amount
   useEffect(() => {
     if (cart) {
@@ -16,8 +20,6 @@ const CartProvider = ({ children }) => {
       setItemAmount(amount);
     }
   }, [cart]);
-  //?Item Amount State
-  const [itemAmount, setItemAmount] = useState(0);
 
   //?Total Price State
   const [total, setTotal] = useState(0);
@@ -26,7 +28,7 @@ const CartProvider = ({ children }) => {
       return acummulator + currentItem.price * currentItem.amount;
     }, 0);
     setTotal(total);
-  },[cart]);
+  }, [cart]);
   //?Add To cart
   const addToCart = (product, id) => {
     const newItem = { ...product, amount: 1 };

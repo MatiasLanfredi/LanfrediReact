@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 //?Import useParams
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 //?Import Cart Context
-import { CartContext } from '../contexts/CartContext';
+import { CartContext } from "../contexts/CartContext";
 //?Import Product Context
-import { ProductContext } from '../contexts/ProductContext';
+import { ProductContext } from "../contexts/ProductContext";
 
 const ProductDetails = () => {
   //?Get the product id from the url
   const { id } = useParams();
+  console.log(id);
   const { products } = useContext(ProductContext);
   const { addToCart } = useContext(CartContext);
 
@@ -40,7 +41,7 @@ const ProductDetails = () => {
               {title}
             </h1>
             <div className="text-xl text-red-500 font-medium mb-6">
-              {price}{' '}
+              {price}{" "}
             </div>
             <p className="mb-8">{description}</p>
             <button

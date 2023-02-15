@@ -1,15 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
 //?Product Provider
-import ProductProvider from './contexts/ProductContext';
+import ProductProvider from "./contexts/ProductContext";
 //?Sidebar Provider
-import SidebarProvider from './contexts/SidebarContext';
+import SidebarProvider from "./contexts/SidebarContext";
 //?Cart Provider
-import CartProvider from './contexts/CartContext';
+import CartProvider from "./contexts/CartContext";
+//?Remixcon
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <SidebarProvider>
     <CartProvider>
