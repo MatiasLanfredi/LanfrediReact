@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/LanfrediReact/static/css/main.1c75dbdd.css",
+    "main.js": "/LanfrediReact/static/js/main.68bc6483.js",
+    "static/media/autumn.jpg": "/LanfrediReact/static/media/autumn.433a0040dbb31888fe04.jpg",
+    "static/media/wantcard.jpg": "/LanfrediReact/static/media/wantcard.7e9c21c893f9c5d525c9.jpg",
+    "static/media/pexels2.jpg": "/LanfrediReact/static/media/pexels2.cac91f9b1a36ec7e174c.jpg",
+    "static/media/cardaboutus.jpg": "/LanfrediReact/static/media/cardaboutus.e56686eb85d3ca0f1200.jpg",
+    "static/media/logtnaranja.png": "/LanfrediReact/static/media/logtnaranja.8af5abeb7d246ba77625.png",
+    "static/media/logotblack.png": "/LanfrediReact/static/media/logotblack.305808c50238b5acd061.png",
+    "index.html": "/LanfrediReact/index.html",
+    "main.1c75dbdd.css.map": "/LanfrediReact/static/css/main.1c75dbdd.css.map",
+    "main.68bc6483.js.map": "/LanfrediReact/static/js/main.68bc6483.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1c75dbdd.css",
+    "static/js/main.68bc6483.js"
+  ]
+}
