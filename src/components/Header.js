@@ -47,7 +47,7 @@ const Header = () => {
           </div>
         </Link>
         <div className="font-semibold tracking-wider flex gap-5 ">
-          <a href="#aboutus">
+          <a href="/#aboutus">
             <div
               className={`${
                 isActive ? "text-black text-lg" : "text-white text-lg"
@@ -56,7 +56,7 @@ const Header = () => {
               About Us
             </div>
           </a>
-          <a href="#contact">
+          <a href="/#contact">
             <div
               className={`${
                 isActive ? "text-black text-lg" : "text-white text-lg"

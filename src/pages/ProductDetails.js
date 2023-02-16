@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 //?Import useParams
 import { useParams } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 //?Import Cart Context
 import { CartContext } from "../contexts/CartContext";
 //?Import Product Context
@@ -50,6 +51,13 @@ const ProductDetails = () => {
             >
               Add to cart
             </button>
+            <ToastContainer
+              position="top-left"
+              autoClose={3000}
+              closeOnClick
+              pauseOnHover={false}
+              theme="light"
+            />
           </div>
         </div>
       </div>

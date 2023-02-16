@@ -5,6 +5,7 @@ import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../services/firebase";
 import { motion } from "framer-motion";
+import { toast, ToastContainer } from "react-toastify";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -25,6 +26,9 @@ const Contact = () => {
     };
     const queryRef = collection(db, "userMessages");
     await addDoc(queryRef, newMessage);
+  };
+  const notify = () => {
+    toast.success("Message received, Thank you!🚀");
   };
 
   return (
@@ -77,6 +81,7 @@ const Contact = () => {
             <div className=" flex flex-col">
               <label>First Name</label>
               <input
+                required
                 className="w-max rounded-full p-1"
                 type="text"
                 placeholder="First name"
@@ -86,6 +91,7 @@ const Contact = () => {
             <div className=" flex flex-col">
               <label>Last Name</label>
               <input
+                required
                 className="w-max rounded-full p-1"
                 type="text"
                 placeholder="Last name"
@@ -97,6 +103,7 @@ const Contact = () => {
             <div className=" flex flex-col">
               <label>Email</label>
               <input
+                required
                 className="w-max rounded-full p-1"
                 type="email"
                 placeholder="you@youremail.com"
@@ -106,8 +113,9 @@ const Contact = () => {
             <div className=" flex flex-col">
               <label>Phone</label>
               <input
+                required
                 className="w-max rounded-full p-1"
-                type="text"
+                type="number"
                 placeholder="Your phone"
                 onChange={(e) => setPhone(e.target.value)}
               ></input>
@@ -116,6 +124,7 @@ const Contact = () => {
           <div className="flex flex-col justify-center items-center">
             <label>Leave your comment!</label>
             <textarea
+              required
               className="w-96 m-auto h-14 p-2 resize-none"
               rows={2}
               placeholder="your comment..."
@@ -124,12 +133,20 @@ const Contact = () => {
           </div>
           <div className="flex m-auto mb-12 ">
             <motion.button
+              onClick={notify}
               whileTap={{ scale: 1.2 }}
               className="rounded-lg border-solid border-2 border-slate-50 p-1"
               type="submit"
             >
               Send message
             </motion.button>
+            <ToastContainer
+              position="top-left"
+              autoClose={3000}
+              closeOnClick
+              pauseOnHover={false}
+              theme="light"
+            />
           </div>
         </form>
       </div>
